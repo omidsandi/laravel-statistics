@@ -21,7 +21,7 @@ class Statistics
             ->where('ip', $ip)
             ->where('created_at', '>', $time)
             ->first();
-        if (!is_null($stat)) {
+        if (is_null($stat)) {
             Statistic::create([
                 'ip' => $ip,
                 'user_id' => $user_id,
