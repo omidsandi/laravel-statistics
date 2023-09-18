@@ -1,0 +1,33 @@
+{
+    "name": "omid.sandi/statistics",
+    "description": "Full monitoring of users on your site",
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "^10.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "OmidSandi\\Statistics\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "omid.sandi",
+            "email": "omid.sandi79@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OmidSandi\\Statistics\\StatisticsServiceProvider"
+            ],
+            "aliases": {
+                "Statistics": "OmidSandi\\Statistics\\StatisticsFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
