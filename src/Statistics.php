@@ -16,8 +16,7 @@ class Statistics
         $userAgent = $_SERVER['HTTP_USER_AGENT'];
         $user_id = Auth::check() ? Auth::user()->id : null;
         $time = Carbon::now()->subHour(24)->format('Y-m-d H:i:s');
-        $stat = Statistic::where('user_id', $user_id)
-            ->where('user_agent', $userAgent)
+        $stat = Statistic::where('user_agent', $userAgent)
             ->where('ip', $ip)
             ->where('created_at', '>', $time)
             ->first();
@@ -42,7 +41,7 @@ class Statistics
 
     public function guest_view($time = false)
     {
-        if ($time):
+        if ($time || $time === 0):
             $time = Carbon::now()->subHour($time)->format('Y-m-d H:i:s');
             $stat = Statistic::where('user_id', null)->where('created_at', '>=', $time)->get();
         else:
